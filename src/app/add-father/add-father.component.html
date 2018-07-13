@@ -1,0 +1,10 @@
+<h1>Add Father</h1>
+<ul>
+  <li>
+    <input class="input-text" type="text" #firstName placeholder="First name"><br>
+    <input class="input-text" type="text" #secondName placeholder="Second date"><br>
+    <input class="input-text" type="text" #pesel placeholder="Pesel"><br>
+    <input class="input-text" type="date" #birthDate placeholder="Birth date"><br>
+    <input class="button-sub" type="submit" (click)="addFather(firstName.value,secondName.value,pesel.value,birthDate.value)"><br>
+  </li>
+</ul>

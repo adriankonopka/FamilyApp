@@ -1,0 +1,34 @@
+<h1>Family</h1>
+
+<ul>
+  <li *ngFor="let family of familys$">
+    <a routerLink="/family/{{family.id}}"></a>
+    <ul>Family {{family.id}}
+      <ul>Father
+        <ul>
+          <li><b>First name:</b> {{family.father.firstName}}</li>
+          <li><b>Second name:</b> {{family.father.secondName}}</li>
+          <li><b>Pesel:</b> {{family.father.pesel}}</li>
+          <li type="date"><b>Birth date:</b> {{family.father.birthDate}}</li>
+        </ul>
+      </ul>
+
+      <ul>Children
+        <ul>
+          <li *ngFor="let child of family.childrenList">
+
+            <ul><b>Child {{child.id}}</b>
+
+              <li><b>First name:</b> {{child.firstName}}</li>
+              <li><b>Second name:</b> {{child.secondName}}</li>
+              <li><b>Pesel:</b> {{child.pesel}}</li>
+              <li><b>Sex:</b> {{child.sex}}</li>
+
+            </ul>
+          </li>
+        </ul>
+      </ul>
+
+    </ul>
+  </li>
+</ul>
