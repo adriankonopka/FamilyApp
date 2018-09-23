@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AddFatherComponent} from './add-father/add-father.component';
 import {ReadFamilyComponent} from './read-family/read-family.component';
+import {AddChildComponent} from './add-child/add-child.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'addfather',
     component: AddFatherComponent
+  },
+  {
+    path: 'addchild',
+    component: AddChildComponent
   },
 ];
 

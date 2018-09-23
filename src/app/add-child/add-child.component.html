@@ -1,3 +1,11 @@
-<p>
-  add-child works!
-</p>
+<h1>Add Child</h1>
+<ul>
+  <li>
+    <input class="input-text" type="number" #familyId placeholder="Family Id"><br>
+    <input class="input-text" type="text" #firstName placeholder="First name"><br>
+    <input class="input-text" type="text" #secondName placeholder="Second name"><br>
+    <input class="input-text" type="text" #pesel placeholder="Pesel"><br>
+    <input class="input-text" type="text" #sex placeholder="Sex"><br>
+    <input class="button-sub" type="submit" (click)="addChild(familyId.value,firstName.value,secondName.value,pesel.value,sex.value)"><br>
+  </li>
+</ul>

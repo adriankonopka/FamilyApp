@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Father} from './add-father/Father';
-import {Observable} from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import {ContentType} from '@angular/http/src/enums';
+import {Observable, throwError} from 'rxjs';
+import {Child} from './add-child/Child';
+import {catchError} from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/x-www-form-urlencoded'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -22,7 +22,23 @@ export class DataService {
     return this.http.get('http://192.168.1.2:8080/all');
   }
 
-  addFather(){
-    return this.http.get('192.168.1.2:8080/AddFatherToFamily', httpOptions);
+  addFather(father: Father): Observable<Father> {
+    return this.http.post<Father>('http://192.168.1.2:8080/aftf', father, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
+
+  addChild(familyId: number, child: Child): Observable<Child>{
+    return this.http.put<Child>('http://192.168.1.2:8080/aftf/family/' + familyId, child, httpOptions);
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {  /*client side */
+    } else {
+    //  server side
+    }
+    return throwError('try again later');
+  }
+
 }

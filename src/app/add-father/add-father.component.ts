@@ -9,7 +9,7 @@ import {DataService} from '../data.service';
 })
 export class AddFatherComponent implements OnInit {
 
-  father$: Object;
+  father: Father;
 
   constructor(private data: DataService) { }
 
@@ -17,8 +17,7 @@ export class AddFatherComponent implements OnInit {
   }
 
   addFather(firstName: string, secondName: string, pesel: string, birthDate: Date) {
-    this.father$ = { familyId: 1, firstName: firstName, secondName: secondName, pesel: pesel, birthDate: birthDate } as Father;
-    this.data.addFather().subscribe(data => this.father$ = data);//console.log('cośwysw:', this.father.firstName, ' date', this.father.birthDate);
+    this.father = {familyId: null, firstName: firstName, secondName: secondName, pesel: pesel, birthDate: birthDate} as Father;
+    this.data.addFather(this.father).subscribe();
   }
-
 }
