@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Father} from './Father';
 import {DataService} from '../data.service';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-add-father',
@@ -14,6 +15,8 @@ export class AddFatherComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
+    // this.allertt.visibility = true;
+    document.getElementById('allert').style.visibility = 'visible';
   }
 
   addFather(firstName: string, secondName: string, pesel: string, birthDate: Date) {
