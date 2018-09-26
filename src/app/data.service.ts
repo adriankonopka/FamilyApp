@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {Father} from './add-father/Father';
 import {Observable, throwError} from 'rxjs';
 import {Child} from './add-child/Child';
@@ -35,8 +35,12 @@ export class DataService {
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {  /*client side */
+      console.error('An error occurred:', error.error.message);
     } else {
     //  server side
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
     }
     return throwError('try again later');
   }

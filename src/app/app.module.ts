@@ -9,6 +9,7 @@ import { AddChildComponent } from './add-child/add-child.component';
 import { ReadFamilyComponent } from './read-family/read-family.component';
 
 import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
