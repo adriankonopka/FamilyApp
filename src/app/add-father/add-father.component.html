@@ -3,7 +3,6 @@
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div>
       <li>
-        <!--<label>First Name</label>-->
         <input placeholder="First Name" type="text" formControlName="firstName" class="input-text" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" /><br>
         <div *ngIf="submitted && f.firstName.errors" class="sth" >
           <div *ngIf="f.firstName.errors.required"> <label>First Name is required</label></div>
@@ -16,15 +15,12 @@
         <div *ngIf="submitted && f.pesel.errors" class="sth">
           <div *ngIf="f.pesel.errors.required">Pesel is required</div>
         </div>
-        <input placeholder="Birth Date" type="date" formControlName="birthDate" class="input-text" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" /><br>
+        <input placeholder="Birth Date" type="date"  formControlName="birthDate" class="input-text" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" /><br>
         <div *ngIf="submitted && f.birthDate.errors" class="sth">
           <div *ngIf="f.birthDate.errors.required">Date is required</div>
         </div>
-        <input class="button-sub" type="submit" value="Submit"><!--(click)="addFather(firstName.value,secondName.value,pesel.value,birthDate.value)"-->
+        <input class="button-sub" type="submit" value="Submit">
       </li>
     </div>
   </form>
 </ul>
-<div id="allert" class="alert" #allertt >
-  <span  class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-</div>

@@ -2,7 +2,6 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Father} from './Father';
 import {DataService} from '../data.service';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-add-father',
@@ -19,7 +18,6 @@ export class AddFatherComponent implements OnInit {
   constructor(private data: DataService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    // this.allertt.visibility = true;
     document.getElementById('allert').style.visibility = 'hidden';
     this.registerForm = this.formBuilder.group(
       {firstName: ['', Validators.required],
@@ -33,12 +31,11 @@ export class AddFatherComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
-    this.addFather(this.f.firstName.valueOf().toString(),this.f.secondName.valueOf().toString(),this.f.pesel.valueOf().toString(),this.f.birthDate);
-    alert('SUCCESS!! :-)');
+    this.addFather(this.f.firstName.value, this.f.secondName.value, this.f.pesel.value, this.f.birthDate.value);
+    // alert('SUCCESS!! :-)');
   }
 
   addFather(firstName: string, secondName: string, pesel: string, birthDate: Date) {
